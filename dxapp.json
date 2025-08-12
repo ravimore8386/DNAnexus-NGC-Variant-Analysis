@@ -1,0 +1,71 @@
+{
+  "name": "ngc_snv_variant_filtering grch38",
+  "title": "ngc snv variant filtering grch38",
+  "summary": "ngc_snv_variant_filtering",
+  "dxapi": "1.0.0",
+  "version": "1.0.0",
+  "inputSpec": [
+    {
+      "name": "input_annot_tab_file",
+      "label": "Annotated tab-delimited .tab file",
+      "class": "file",
+      "optional": false,
+      "patterns": ["*.tab"],
+      "help": ""
+    },
+    {
+      "name": "input_family_file",
+      "label": "A list of family names in file",
+      "class": "file",
+      "optional": false,
+      "patterns": ["*.txt"],
+      "help": ""
+    },
+    {
+      "name": "input_manifest_file",
+      "label": "Manifest file",
+      "class": "file",
+      "optional": false,
+      "patterns": ["*.txt"],
+      "help": ""
+    }
+  ],
+  "outputSpec": [
+    {
+      "name": "outfiles",
+      "label": "output files",
+      "class": "array:file",
+      "patterns": [
+        "*"
+      ],
+      "help": ""
+    }
+  ],
+  "runSpec": {
+    "timeoutPolicy": {
+      "*": {
+        "hours": 48
+      }
+    },
+    "interpreter": "bash",
+    "file": "src/ngc_snv_variant_filtering_grch38.sh",
+    "distribution": "Ubuntu",
+    "release": "20.04",
+    "version": "0"
+  },
+  "access": {
+    "network": [
+      "*"
+    ],
+    "project": "CONTRIBUTE"
+  },
+  "regionalOptions": {
+    "aws:eu-central-1": {
+      "systemRequirements": {
+        "*": {
+          "instanceType": "mem1_ssd1_x2"
+        }
+      }
+    }
+  }
+}
